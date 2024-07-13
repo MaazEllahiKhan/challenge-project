@@ -11,6 +11,14 @@ export default function Home() {
   const [messageData, setMessageData] = useState(messageAllData);
   const [userData, setUserData] = useState(userAllData);
 
+  // function addNewlines(str: string) {
+  //   var result = '';
+  //   while (str.length > 0) {
+  //     result += str.substring(0, 100) + '<br>';
+  //     str = str.substring(100);
+  //   }
+  //   return result;
+  // }
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -40,8 +48,8 @@ export default function Home() {
             })
             }
           </TabPanel>
-          <TabPanel>
-            <div><pre>{JSON.stringify(messageData && messageData.filter((item) => item.chatid === 8), null, 2)}</pre></div>
+          <TabPanel width={100}>
+            <div><pre style={{whiteSpace: 'pre-wrap'}}>{JSON.stringify(messageData && messageData.filter((item) => item.chatid === 8), null, 2)}</pre></div>
           </TabPanel>
           <TabPanel>
             <div><pre>{JSON.stringify(userData && userData.map((user) => Object.assign({}, { ...user, password: "********" })).filter((user) => user.id === 100))}</pre></div>
